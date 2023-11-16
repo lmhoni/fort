@@ -1,5 +1,5 @@
 {
-    "name": "spiritiz/fort",
+    "name": "spiritiz/fortest",
     "description": "A Laravel authentication guard enabling external API-based authentication.",
     "type": "library",
     "autoload": {
