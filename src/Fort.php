@@ -1,8 +1,8 @@
 <?php
 
-namespace Spiritiz\Fortest;
+namespace Spiritiz\Integrals;
 
-class Fortest {
+class Fort {
 
     public function square ($num) {
         return $num * $num;
