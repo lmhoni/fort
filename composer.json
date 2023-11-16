@@ -1,0 +1,18 @@
+{
+    "name": "spiritiz/fort",
+    "description": "A Laravel authentication guard enabling external API-based authentication.",
+    "type": "library",
+    "autoload": {
+        "psr-4": {
+            "Spiritiz\\Integrals\\Fort\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Lawrence Mhoni",
+            "email": "lawrencemhoni@gmail.com"
+        }
+    ],
+    "minimum-stability": "dev",
+    "require": {}
+}
