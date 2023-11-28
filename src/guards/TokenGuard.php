@@ -42,8 +42,7 @@ class TokenGuard implements Guard {
      *
      * @return mixed
      */
-    public function user()
-    {
+    public function user() {
         if (! is_null($this->user)) {
             return $this->user;
         }
@@ -60,8 +59,7 @@ class TokenGuard implements Guard {
      * @param  \Illuminate\Http\Request  $request
      * @return mixed
      */
-    protected function authenticateViaBearerToken($request)
-    {
+    protected function authenticateViaBearerToken($request) {
 
         // If the access token is valid we will retrieve the user according to the user ID
         // associated with the token. We will use the provider implementation which may
@@ -76,6 +74,20 @@ class TokenGuard implements Guard {
 
 
         return $user;
+    }
+
+    
+    /**
+     * Validate a user's credentials.
+     *
+     * @param  array  $credentials
+     * @return bool
+     */
+    public function validate(array $credentials = []) {
+        return ! is_null((new static(
+            $this->provider,
+            $credentials['request'],
+        ))->user());
     }
 
 
