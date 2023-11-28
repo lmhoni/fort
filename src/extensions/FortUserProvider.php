@@ -1,6 +1,6 @@
 <?php
 
-namespace Spiritiz\Integrals;
+namespace Spiritiz\Integrals\Providers;
 
 use Illuminate\Contracts\Auth\Authenticatable;
 use Illuminate\Contracts\Auth\UserProvider;

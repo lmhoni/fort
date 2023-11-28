@@ -4,7 +4,9 @@
     "type": "library",
     "autoload": {
         "psr-4": {
-            "Spiritiz\\Integrals\\": "src/"
+            "Spiritiz\\Integrals\\": "src/",
+            "Spiritiz\\Integrals\\Providers\\": "src/extensions",
+            "Spiritiz\\Integrals\\Guards\\": "src/guards"
         }
     },
     "authors": [
