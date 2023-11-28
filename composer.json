@@ -16,7 +16,7 @@
     "extra": {
         "laravel": {
             "providers": [
-                "Spiritiz\\Integrals\\PassportServiceProvider"
+                "Spiritiz\\Integrals\\FortServiceProvider"
             ]
         }
     },
