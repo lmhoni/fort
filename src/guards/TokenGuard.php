@@ -5,11 +5,12 @@ namespace Spiritiz\Integrals\Guards;
 use Illuminate\Contracts\Auth\Guard;
 use Illuminate\Auth\GuardHelpers;
 
+use Illuminate\Support\Traits\Macroable;
 use Illuminate\Support\Facades\Http;
 
 class TokenGuard implements Guard {
 
-    use GuardHelpers;
+    use GuardHelpers, Macroable;
 
     /**
      * The user provider implementation.
