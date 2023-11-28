@@ -6,6 +6,7 @@ use Illuminate\Support\ServiceProvider;
 use Illuminate\Support\Facades\Auth;
 
 use Spiritiz\Integrals\Guards\TokenGuard;
+use Spiritiz\Integrals\Providers\FortUserProvider;
 
 class FortServiceProvider extends ServiceProvider {
 
