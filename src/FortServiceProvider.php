@@ -20,7 +20,7 @@ class FortServiceProvider extends ServiceProvider {
 
         $this->publishes([
             __DIR__.'/../config/fort.php' => config_path('fort.php'),
-        ]);
+        ], 'fort');
 
     }
 
