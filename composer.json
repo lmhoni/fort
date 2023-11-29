@@ -6,7 +6,8 @@
         "psr-4": {
             "Spiritiz\\Integrals\\": "src/",
             "Spiritiz\\Integrals\\Providers\\": "src/extensions",
-            "Spiritiz\\Integrals\\Guards\\": "src/guards"
+            "Spiritiz\\Integrals\\Guards\\": "src/guards",
+            "Spiritiz\\Integrals\\Authenticables\\": "src/authenticables"
         }
     },
     "authors": [
