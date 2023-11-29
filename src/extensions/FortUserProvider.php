@@ -2,10 +2,13 @@
 
 namespace Spiritiz\Integrals\Providers;
 
-use Illuminate\Contracts\Auth\Authenticatable;
 use Illuminate\Contracts\Auth\UserProvider;
 
 use Illuminate\Support\Facades\Http;
+use Illuminate\Support\Facades\Config;
+
+use Spiritiz\Integrals\Authenticables\User;
+
 
 
 class FortUserProvider implements UserProvider {
@@ -44,16 +47,37 @@ class FortUserProvider implements UserProvider {
             'Authorization' => 'Bearer '. $token
         ];
 
-        $url = 'http://localhost:8002/user';
+        $url = Config::get('fort.auth_verification_url');
+        $path = Config::get('fort.data_node_path');
 
         $response = Http::withHeaders($headers)
                         ->get($url, []);
 
         if ($response->ok()) {
-            return $response;
+            $data = $this->getArrayNode($path, $response);
+            return new User($data);
         }
 
     }
+
+    protected function getArrayNode ($path, $items) {
+
+        $path = str_replace('].', ' ', $path);
+        $path = str_replace('][', ' ', $path);
+        $path = str_replace(']', ' ', $path);
+        $path = str_replace('[', ' ', $path);
+        $path = str_replace('.', ' ', $path);
+        $path = trim($path, ' ');
+
+        $pathArr = explode(' ',  $path);
+
+        foreach ($pathArr as $index => $value) {
+            $items = $items[$value];
+        }
+
+        return $items;
+    }
+
 
 
     public function retrieveById($identifier) { }
