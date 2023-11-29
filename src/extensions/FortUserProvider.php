@@ -32,77 +32,40 @@ class FortUserProvider implements UserProvider {
      * @param  string  $providerName
      * @return void
      */
-    public function __construct(UserProvider $provider, $providerName)
+    public function __construct($config)
     {
-        $this->provider = $provider;
-        $this->providerName = $providerName;
-    }
 
-    /**
-     * {@inheritdoc}
-     */
-    public function retrieveById($identifier)
-    {
-        return $this->provider->retrieveById($identifier);
     }
-
-    /**
-     * {@inheritdoc}
-     */
-    public function retrieveByToken($identifier, $token)
-    {
-        return $this->provider->retrieveByToken($identifier, $token);
-    }
-
 
     public function retrieveByTokenOnly($token) {
 
-        $response = Http::withHeaders([
+        $headers = [
             'Accept' => 'application/json',
             'Authorization' => 'Bearer '. $token
-        ])->get('http://localhost:8002/api/user', []);
+        ];
 
-        \Log::info($response);
+        $url = 'http://localhost:8002/user';
 
-        if ($response) {
+        $response = Http::withHeaders($headers)
+                        ->get($url, []);
+
+        if ($response->ok()) {
             return $response;
         }
 
     }
 
 
-    /**
-     * {@inheritdoc}
-     */
-    public function updateRememberToken(Authenticatable $user, $token)
-    {
-        $this->provider->updateRememberToken($user, $token);
-    }
+    public function retrieveById($identifier) { }
 
-    /**
-     * {@inheritdoc}
-     */
-    public function retrieveByCredentials(array $credentials)
-    {
-        return $this->provider->retrieveByCredentials($credentials);
-    }
+    public function retrieveByToken($identifier, $token) { }
 
-    /**
-     * {@inheritdoc}
-     */
-    public function validateCredentials(Authenticatable $user, array $credentials)
-    {
-        return $this->provider->validateCredentials($user, $credentials);
-    }
+    public function updateRememberToken(Authenticatable $user, $token) { }
 
-    /**
-     * Get the name of the user provider.
-     *
-     * @return string
-     */
-    public function getProviderName()
-    {
-        return $this->providerName;
-    }
+    public function retrieveByCredentials(array $credentials) { }
+
+    public function validateCredentials(Authenticatable $user, array $credentials) { }
+
+    public function getProviderName() { }
 
 }

@@ -7,6 +7,9 @@ use Illuminate\Auth\GuardHelpers;
 
 use Illuminate\Support\Traits\Macroable;
 use Illuminate\Support\Facades\Http;
+use Illuminate\Http\Request;
+
+use Spiritiz\Integrals\Providers\FortUserProvider;
 
 class TokenGuard implements Guard {
 
@@ -49,7 +52,7 @@ class TokenGuard implements Guard {
 
         if ($this->request->bearerToken()) {
             return $this->user = $this->authenticateViaBearerToken($this->request);
-        } 
+        }
 
     }
 
@@ -76,7 +79,7 @@ class TokenGuard implements Guard {
         return $user;
     }
 
-    
+
     /**
      * Validate a user's credentials.
      *

@@ -18,6 +18,10 @@ class FortServiceProvider extends ServiceProvider {
 
     public function boot () {
 
+        $this->publishes([
+            __DIR__.'/../config/fort.php' => config_path('fort.php'),
+        ]);
+
     }
 
     protected function registerGuard()
@@ -28,6 +32,10 @@ class FortServiceProvider extends ServiceProvider {
                     app()->refresh('request', $guard, 'setRequest');
                 });
             });
+
+            $auth->provider('fort', function ($app, array $config) {
+                return new FortUserProvider($config);
+            });
         });
     }
 
@@ -35,7 +43,7 @@ class FortServiceProvider extends ServiceProvider {
     protected function makeGuard(array $config)
     {
         return new TokenGuard(
-            new FortUserProvider(Auth::createUserProvider($config['provider']), $config['provider']),
+            new FortUserProvider($config),
             $this->app->make('request')
         );
     }
