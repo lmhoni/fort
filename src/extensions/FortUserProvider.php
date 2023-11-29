@@ -3,12 +3,11 @@
 namespace Spiritiz\Integrals\Providers;
 
 use Illuminate\Contracts\Auth\UserProvider;
-
+use Illuminate\Contracts\Auth\Authenticatable;
 use Illuminate\Support\Facades\Http;
 use Illuminate\Support\Facades\Config;
 
 use Spiritiz\Integrals\Authenticables\User;
-
 
 
 class FortUserProvider implements UserProvider {
