@@ -1,5 +1,5 @@
 {
-    "name": "spiritiz/fortest",
+    "name": "spiritiz/fort",
     "description": "A laravel package that allows authentication to be verified via an API using header token.",
     "type": "library",
     "autoload": {
