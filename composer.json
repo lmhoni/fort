@@ -1,6 +1,6 @@
 {
     "name": "spiritiz/fortest",
-    "description": "A Laravel authentication guard enabling external API-based authentication.",
+    "description": "A laravel package that allows authentication to be verified via an API using header token.",
     "type": "library",
     "autoload": {
         "psr-4": {

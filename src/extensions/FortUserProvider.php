@@ -53,8 +53,7 @@ class FortUserProvider implements UserProvider {
                         ->get($url, []);
 
         if ($response->ok()) {
-            $data = $this->getArrayNode($path, $response);
-            return new User($data);
+            return $this->getArrayNode($path, $response);
         }
 
     }
