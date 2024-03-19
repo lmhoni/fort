@@ -57,6 +57,20 @@ class TokenGuard implements Guard {
     }
 
     /**
+     * Set the current request instance.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @return $this
+     */
+    public function setRequest(Request $request)
+    {
+        $this->request = $request;
+
+        return $this;
+    }
+
+    
+    /**
      * Authenticate the incoming request via the Bearer token.
      *
      * @param  \Illuminate\Http\Request  $request
