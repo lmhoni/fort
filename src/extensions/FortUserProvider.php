@@ -90,4 +90,6 @@ class FortUserProvider implements UserProvider {
 
     public function getProviderName() { }
 
+    public function rehashPasswordIfRequired(Authenticatable $user, array $credentials, bool $force = false) { }
+
 }

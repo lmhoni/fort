@@ -3,8 +3,16 @@
 
 return [
 
-    'auth_verification_url' => 'http://localhost:8002/user',
+    /**
+     * YOUR URL
+     * e.g http://localhost:8002/user
+     */
+    'auth_verification_url' => '',
 
-    'data_node_path' => 'data',
+    /**
+     * PATH
+     * e.g user or user.data (If the response was something like {user : {data : { } }} )
+     */
+    'path' => 'user',
 
 ];
