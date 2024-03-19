@@ -47,7 +47,7 @@ class FortUserProvider implements UserProvider {
         ];
 
         $url = Config::get('fort.auth_verification_url');
-        $path = Config::get('fort.data_node_path');
+        $path = Config::get('fort.path');
 
         $response = Http::withHeaders($headers)
                         ->get($url, []);
